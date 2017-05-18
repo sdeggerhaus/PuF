@@ -1,0 +1,5 @@
+.root {
+	-fx-background-image: url("../media/spielfeld.bmp");
+	-fx-background-position: center;
+	-fx-background-size: stretch;
+}
