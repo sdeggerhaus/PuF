@@ -15,6 +15,8 @@
 		<padding><Insets top="130" left="480"/></padding>
 		</GridPane>
 	</center>
-
+	<bottom>
+    	<Label id="timer"  text="00:00"  fx:id="lblTimer"/>    
+    </bottom>
 </BorderPane>
 
