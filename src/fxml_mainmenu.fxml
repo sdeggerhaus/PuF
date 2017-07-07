@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+
+<HBox fx:controller="solitaireController.MMcontroller" id="mm_main" fx:id="mm_main" spacing="10" xmlns:fx="http://javafx.com/fxml">
+	<Label id="start"  text="START" onMouseClicked="#startAction" fx:id="lblStrt"/>
+	<Label id="highsc"  text="HIGHSCORE" onMouseClicked="#hscAction" fx:id="lblHsc"/>
+	<Label id="opt"  text="OPTIONEN" onMouseClicked="#optAction" fx:id="lblOpt"/>
+	<Label id="exit"  text="BEENDEN" onMouseClicked="#exitAction" fx:id="lblExit"/>
+</HBox>

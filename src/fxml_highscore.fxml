@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.collections.*?> 
+<?import fxmltableview.*?> 
+
+<BorderPane fx:controller="solitaireController.HSCcontroller" xmlns:fx="http://javafx.com/fxml">
+	<center>
+    	 <TableView fx:id="tV">
+          <columns>
+              <TableColumn fx:id="nameCol" text="User" prefWidth="250">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="user" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="dateCol" text="Datum" prefWidth="100">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="date" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="scoreCol" text="Score" prefWidth="100">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="value" />
+                  </cellValueFactory>
+              </TableColumn>
+          </columns>    
+          <items>
+              <FXCollections fx:factory="observableArrayList">
+                  
+              </FXCollections>
+          </items>
+          <sortOrder>
+              <fx:reference source="scoreCol"/>
+          </sortOrder> 
+     </TableView>
+	</center>	
+</BorderPane>
+

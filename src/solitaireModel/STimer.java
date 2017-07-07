@@ -44,7 +44,11 @@ public class STimer{
 	public void update(){
 		time += 10;
 		timeS = dateformat.format(new Date(time));
-		System.out.println(timeS);
+		//System.out.println(timeS);
+	}
+	
+	public long getTime(){
+		return time;
 	}
 	
 	public String getTimeS(){

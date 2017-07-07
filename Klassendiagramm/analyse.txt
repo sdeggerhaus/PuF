@@ -1,0 +1,25 @@
+--- Klassen und Pakete ---
+Model:
+- Figur
+- Spielfeld
+- Spiel
+- Sammelklassen Figuren
+- Spielzug
+- Highscore
+- Timer
+- Datenbank 
+
+View:
+- UserInterface
+
+Controller:
+- FXMLController
+
+--- Funktionsweise ---
+- UserInterface Ausgangspunkt für alles
+- Bei Spielzug Fade in und Fade out der entsprechenden Bilder
+- Spielzug besitzt id des aktuellen und des Folgefeldes, id des Schwindenden wird berechnet
+- Das UserInterface zeigt den Timer und den Highscore an
+- Der Highscore wird aus der Datenbank gelesen und in diese gespeichert
+- Während des Spielens wird der aktuelle Score und die Platzierung angezeigt
+- 

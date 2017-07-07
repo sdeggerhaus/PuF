@@ -5,15 +5,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
 
 <BorderPane fx:controller="solitaireController.FXMLcontroller" xmlns:fx="http://javafx.com/fxml">
-	<top>
-    	<Button id="button"  text="Start!"  onAction="#handleButtonAction" fx:id="btnStart"/>    
-    </top>
 	<center>
-    	<GridPane hgap="50" vgap="14" fx:id="gridPaneImage">
-		<padding><Insets top="130" left="480"/></padding>
-		</GridPane>
+    	<Pane id="vb1" fx:id="vb1" onMouseReleased="#handleMouseRel" onMouseClicked="#handleMouseClick" >
+    	</Pane>
 	</center>
 	<bottom>
     	<Label id="timer"  text="00:00"  fx:id="lblTimer"/>    
