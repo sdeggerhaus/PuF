@@ -5,17 +5,17 @@
     -fx-background-color: black;
 }
 
-#mm_main Label {
+#mm_main Label, #lblback, #lblend, #timer {
 	-fx-background-color: rgba(128,168,255,0.7);
 	-fx-background-radius: 10px;
 	-fx-padding: 10px;
 }
 
-#mm_main {
+#mm_main, #opt, #vbox11 {
 	-fx-alignment: center;
 }
 
-#mm_main Label:hover {
+#mm_main Label:hover, #lblback:hover {
 	-fx-text-fill: yellow;
 	-fx-background-color: rgba(128,168,255,0.2);
 }

@@ -29,6 +29,16 @@
                       <PropertyValueFactory property="value" />
                   </cellValueFactory>
               </TableColumn>
+              <TableColumn fx:id="roundsCol" text="Anz. Runden" prefWidth="100">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="rounds" />
+                  </cellValueFactory>
+              </TableColumn>
+              <TableColumn fx:id="leftiesCol" text="Anz. Steine" prefWidth="100">
+                  <cellValueFactory>
+                      <PropertyValueFactory property="lefties" />
+                  </cellValueFactory>
+              </TableColumn>
           </columns>    
           <items>
               <FXCollections fx:factory="observableArrayList">
@@ -39,6 +49,9 @@
               <fx:reference source="scoreCol"/>
           </sortOrder> 
      </TableView>
-	</center>	
+	</center>
+	<bottom>
+		<Label id="lblback" fx:id="lblback" text="zurueck" onMouseClicked="#handleBack"/>
+	</bottom>
 </BorderPane>
 

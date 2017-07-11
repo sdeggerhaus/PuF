@@ -57,7 +57,7 @@ public class Highscore {
 	}
 	
 	public void update(){
-		value = (int) (timeinmillis/100);
+		value += (int) (timeinmillis/100);
 	}
 	
 	public int getValue(){
@@ -86,11 +86,15 @@ public class Highscore {
 	
 	public void setLefties(int lefties) {
 		this.lefties = lefties;
+		this.value += (lefties*1000);
 	}
 
 	public boolean isFinish() {
 		return finish;
 	}
 	
-	
+	public void addRound(int anz){
+		value += 200;
+		rounds = anz; 
+	}
 }

@@ -22,7 +22,7 @@ public class Database {
 	private TimerTask tTask;
 	private boolean running;
 	
-	private int currIndex = -1;
+	public static int currIndex = -1;
 	
 	public Database(){
 		initialize();
@@ -31,9 +31,17 @@ public class Database {
 	private void initialize(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/solitaire", "root", "");			
+			//con = DriverManager.getConnection("jdbc:mysql://rdbms.strato.de/DB3035441", "U3035441", "Deluxelusche1");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/solitaire", "root", "");
 		} catch (ClassNotFoundException e) {System.out.println("no class");
-		} catch (SQLException e) {System.out.println("no connection");
+		} catch (SQLException e) {System.out.println("no online connection");
+		}finally{
+			
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/solitaire", "root", "");
+			} catch (ClassNotFoundException e) {System.out.println("no class");
+			} catch (SQLException e) {System.out.println("no local connection");}
 		}
 	}
 	
@@ -68,11 +76,11 @@ public class Database {
 		}
 	}
 	
-	public void updateEnd(){
+	public void updateLefties(int l){
 		if(currIndex != -1){
 			PreparedStatement stmt;
 			try {
-				String query = "UPDATE scores SET SFinish = TRUE WHERE SiD = " +  currIndex + ";"; 
+				String query = "UPDATE scores SET SLefties = " + l + " WHERE SiD = " +  currIndex + ";"; 
 				stmt = con.prepareStatement(query);			
 				stmt.execute();
 			} catch (SQLException e) { 
@@ -84,7 +92,7 @@ public class Database {
 		PreparedStatement stmt;
 		Highscore[] hArray = null;
 		try {
-			String query = "SELECT * FROM scores ORDER BY SValue DESC"; 
+			String query = "SELECT * FROM scores ORDER BY SValue ASC"; 
 			stmt = con.prepareStatement(query);			
 			ResultSet result = stmt.executeQuery();
 			
@@ -121,6 +129,33 @@ public class Database {
 		e.printStackTrace(System.err);
 		}
 		return sval;
+	}
+	
+	public void delAtStart(){
+		PreparedStatement stmt;
+		try {
+			String query = "DELETE FROM scores WHERE SLefties IS NULL;"; 
+			stmt = con.prepareStatement(query);			
+			int result = stmt.executeUpdate();
+			System.out.println(result);
+					
+			
+		} catch (SQLException e) { 
+			e.printStackTrace(System.err);
+		}
+	}
+	
+	public void updateName(String name){
+		System.out.println(currIndex);
+		if(currIndex != -1){
+			PreparedStatement stmt;
+			try {
+				String query = "UPDATE scores SET SUser = " + name + " WHERE SiD = " +  currIndex + ";"; 
+				stmt = con.prepareStatement(query);			
+				stmt.execute();
+			} catch (SQLException e) { 
+			}
+		}
 	}
 		
 }

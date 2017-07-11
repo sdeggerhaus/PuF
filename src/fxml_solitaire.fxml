@@ -13,7 +13,10 @@
     	</Pane>
 	</center>
 	<bottom>
-    	<Label id="timer"  text="00:00"  fx:id="lblTimer"/>    
+		<HBox spacing="10">
+			<Label id="lblback" fx:id="lblback" text="zurueck" onMouseClicked="#handleBack"/>
+   			<Label id="timer"  text="00:00"  fx:id="lblTimer"/>			
+		</HBox>		
     </bottom>
 </BorderPane>
 

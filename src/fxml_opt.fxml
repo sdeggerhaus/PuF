@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.*?>
+
+<BorderPane fx:controller="solitaireController.OPTcontroller" xmlns:fx="http://javafx.com/fxml">
+	<center>
+		<VBox id="vbox11" spacing="10">
+			<Label id="lblend" text="Keine weitere Zuege moeglich" />
+			<HBox id="opt" fx:id="opt" spacing="10">
+				<Label id="lblname"  text="Name"/>
+				<TextField id="tfname"  text="Name" fx:id="tfname"/>
+			</HBox>
+		</VBox>
+	</center>
+	<bottom>
+		<Label id="lblback" fx:id="lblback" text="weiter" onMouseClicked="#handleForw"/>
+	</bottom>
+</BorderPane>

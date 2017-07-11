@@ -20,8 +20,8 @@ public class PlayRound {
 	
 	public boolean valid(Position toDel){
 		boolean ret = false;
-		System.out.println(origin.getHor() + " " + target.getHor() + " " + toDel.getHor());
-		System.out.println(origin.getVert() + " " + target.getVert() + " " + toDel.getVert());
+		//System.out.println(origin.getHor() + " " + target.getHor() + " " + toDel.getHor());
+		//System.out.println(origin.getVert() + " " + target.getVert() + " " + toDel.getVert());
 		if(!origin.isEmpty() && target.isEmpty()){
 			if(origin.getHor() != target.getHor()){
 				if(origin.getVert() == target.getVert()){

@@ -7,6 +7,5 @@ CREATE TABLE scores (
 	SValue int(11) NOT NULL,
 	SRounds int(3) NULL,
 	SLefties int(3) NULL,
-	SFinish boolean NOT NULL,
 	PRIMARY KEY (SiD)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

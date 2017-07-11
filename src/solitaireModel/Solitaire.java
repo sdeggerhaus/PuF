@@ -85,12 +85,13 @@ public class Solitaire {
 		db.updateScore(score.getValue(), score.getRounds());
 	}
 	
-	public void updateEnd(){
-		db.updateEnd();
+	public void updateLefties(){
+		db.updateLefties(score.getLefties());
 	}
-	
+		
 	public void setLefties(int lefties){
 		score.setLefties(lefties);
+		updateLefties();
 	}
 	
 	public Highscore getScore(){
@@ -107,5 +108,10 @@ public class Solitaire {
 	
 	public void addRond(PlayRound round){
 		rounds.add(round);
+	}
+	
+	public void manageNewRound(){
+		score.addRound(rounds.size());
+		this.update();
 	}
 }

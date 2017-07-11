@@ -11,15 +11,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import solitaireModel.Database;
 
 public class MMcontroller {
 	
 	@FXML private HBox mm_main;
+	private Database db;
 	
 	private DoubleProperty fontSize = new SimpleDoubleProperty(20);
 	
 	
-	@FXML private void initialize() {		
+	@FXML private void initialize() {
+		db = new Database();
+		db.delAtStart();
 		fontSize.bind(mm_main.widthProperty().add(mm_main.heightProperty()).divide(50));
 		for (int i = 0; i < mm_main.getChildren().size(); i++) {
 			mm_main.getChildren().get(i).styleProperty().bind(Bindings.concat("-fx-font-size: ", fontSize.asString(), ";"));
@@ -55,11 +59,7 @@ public class MMcontroller {
 			e.printStackTrace();
 		}
 	}
-	
-	@FXML private void optAction() {
 		
-	}
-	
 	@FXML private void exitAction() {
 		Stage st = (Stage) mm_main.getScene().getWindow();
 		st.close();
