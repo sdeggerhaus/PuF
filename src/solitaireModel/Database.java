@@ -22,7 +22,7 @@ public class Database {
 	private TimerTask tTask;
 	private boolean running;
 	
-	public static int currIndex = -1;
+	private int currIndex = -1;
 	
 	public Database(){
 		initialize();
@@ -31,7 +31,7 @@ public class Database {
 	private void initialize(){
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			//con = DriverManager.getConnection("jdbc:mysql://rdbms.strato.de/DB3035441", "U3035441", "Deluxelusche1");
+			//con = DriverManager.getConnection("jdbc:mysql://rdbms.strato.de/", "", "");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/solitaire", "root", "");
 		} catch (ClassNotFoundException e) {System.out.println("no class");
 		} catch (SQLException e) {System.out.println("no online connection");
@@ -137,7 +137,7 @@ public class Database {
 			String query = "DELETE FROM scores WHERE SLefties IS NULL;"; 
 			stmt = con.prepareStatement(query);			
 			int result = stmt.executeUpdate();
-			System.out.println(result);
+			//System.out.println(result);
 					
 			
 		} catch (SQLException e) { 
@@ -146,7 +146,7 @@ public class Database {
 	}
 	
 	public void updateName(String name){
-		System.out.println(currIndex);
+		//System.out.println(currIndex + " " + name);
 		if(currIndex != -1){
 			PreparedStatement stmt;
 			try {
@@ -156,6 +156,10 @@ public class Database {
 			} catch (SQLException e) { 
 			}
 		}
+	}
+	
+	public void setIndex(int index){
+		currIndex = index;
 	}
 		
 }

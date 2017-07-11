@@ -30,6 +30,7 @@ public class Solitaire {
 		tim = new Timer("Metronome", true);
 		
 		db = new Database();
+		db.setIndex(-1);
 	}
 	
 	public Position getPositionAt(int hor, int vert){
@@ -113,5 +114,9 @@ public class Solitaire {
 	public void manageNewRound(){
 		score.addRound(rounds.size());
 		this.update();
+	}
+	
+	public void stopScore(){
+		score.stop();
 	}
 }

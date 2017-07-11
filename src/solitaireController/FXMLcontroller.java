@@ -56,7 +56,6 @@ public class FXMLcontroller {
 	@FXML private Label lblback;
 	
 	@FXML private void initialize() {
-		Database.currIndex = -1;
 		game = new Solitaire();
 		FileInputStream imageStream = null;
 		try {
@@ -191,9 +190,7 @@ public class FXMLcontroller {
     @FXML protected void handleMouseRel(MouseEvent event) {
     	double diffX = event.getSceneX() - dragOriginX;
 		double diffY = event.getSceneY() - dragOriginY;
-		
-		double ratio = vb1.getWidth()/vb1.getHeight();
-		
+				
 		int posOriI = (int) Math.round((dragOriginX - (vb1.getWidth()*0.3157))/(vb1.getWidth()*0.063));
 		int posOriJ = (int) Math.round((dragOriginY - (vb1.getHeight()*0.215))/(vb1.getHeight()*0.08));
 		
@@ -231,6 +228,8 @@ public class FXMLcontroller {
 				if(hasRounds.isDone()){
 					try {
 						if(!hasRounds.get()){
+							game.stopScore();
+							game.stop();
 							calcLefties();
 							changeToName();
 						}
